@@ -73,47 +73,47 @@ namespace UTJ.FrameCapturer
             if (recorder.captureControl == RecorderBase.CaptureControl.FrameRange ||
                 recorder.captureControl == RecorderBase.CaptureControl.TimeRange)
             {
-                if (!EditorApplication.isPlaying)
-                {
-                    EditorGUILayout.Space();
-                    if (GUILayout.Button("Play"))
-                    {
-                        EditorApplication.isPlaying = true;
-                    }
-                }
-                else if (recorder.isRecording)
-                {
-                    if (GUILayout.Button("Abort"))
-                    {
-                        recorder.EndRecording();
-                    }
-                }
+                //if (!EditorApplication.isPlaying)
+                //{
+                //    EditorGUILayout.Space();
+                //    if (GUILayout.Button("Play"))
+                //    {
+                //        EditorApplication.isPlaying = true;
+                //    }
+                //}
+                //else if (recorder.isRecording)
+                //{
+                //    if (GUILayout.Button("Abort"))
+                //    {
+                //        recorder.EndRecording();
+                //    }
+                //}
             }
             else if (recorder.captureControl == RecorderBase.CaptureControl.Manual)
             {
-                EditorGUILayout.Space();
-                if (!recorder.isRecording)
-                {
-                    if (GUILayout.Button("Start Recording"))
-                    {
-                        if (!EditorApplication.isPlaying)
-                        {
-                            so.FindProperty("m_recordOnStart").boolValue = true;
-                            EditorApplication.isPlaying = true;
-                        }
-                        else
-                        {
-                            recorder.BeginRecording();
-                        }
-                    }
-                }
-                else
-                {
-                    if (GUILayout.Button("End Recording"))
-                    {
-                        recorder.EndRecording();
-                    }
-                }
+                //EditorGUILayout.Space();
+                //if (!recorder.isRecording)
+                //{
+                //    if (GUILayout.Button("Start Recording"))
+                //    {
+                //        if (!EditorApplication.isPlaying)
+                //        {
+                //            so.FindProperty("m_recordOnStart").boolValue = true;
+                //            EditorApplication.isPlaying = true;
+                //        }
+                //        else
+                //        {
+                //            recorder.BeginRecording();
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                //    if (GUILayout.Button("End Recording"))
+                //    {
+                //        recorder.EndRecording();
+                //    }
+                //}
             }
             EditorGUI.indentLevel--;
         }
