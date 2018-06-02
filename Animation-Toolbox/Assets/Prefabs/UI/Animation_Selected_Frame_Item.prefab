@@ -235,7 +235,7 @@ MonoBehaviour:
   sourceType: 0
   image: {fileID: 114630636703681982}
   spriteRenderer: {fileID: 0}
-  frameRate: 0.2
+  frameRate: 0.05
   _currentFrameIndex: 0
   animationEntities: []
 --- !u!114 &114975263212770538
