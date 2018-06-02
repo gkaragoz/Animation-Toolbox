@@ -1,19 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ToolboxManager : MonoBehaviour {
 
+    public bool debugMode = false;
+
+    [Header("Settings")]
+    [Range(0.01f, 2f)]
+    [Tooltip("Only works on debugMode has checked.")]
+    public float repeatRate = 0.5f;
     public Animation animTarget;
 
     private SnapScrolling _snapScrolling;
     private AssetsLoader _assetsLoader;
+    private List<ToolboxItem> _toolboxItems = new List<ToolboxItem>();
 
     private void Start() {
         _snapScrolling = FindObjectOfType<SnapScrolling>();
         _assetsLoader = FindObjectOfType<AssetsLoader>();
         _assetsLoader.onAssetsLoaded += OnAssetsLoaded;
         _assetsLoader.LoadAssets(typeof(Sprite));
+    }
+
+    private void Update() {
+        if (debugMode) {
+            for (int ii = 0; ii < _toolboxItems.Count; ii++) {
+                _toolboxItems[ii].SetRepeatRate(repeatRate);
+            }
+        }
     }
 
     private void OnAssetsLoaded() {
@@ -30,14 +45,22 @@ public class ToolboxManager : MonoBehaviour {
 
                 newPanelAnimationManager.AddAnimationEntity(animationName, animationSprites);
 
-                newPanel.GetComponentInChildren<Button>().onClick.AddListener(delegate () {
-                    animTarget.Play(animationName);
-                });
+                ToolboxItem toolboxItem = newPanel.GetComponent<ToolboxItem>();
+                toolboxItem.Init(animTarget, animationName, repeatRate);
+                toolboxItem.onClicked += StopAll;
+                _toolboxItems.Add(toolboxItem);
 
                 newPanelAnimationManager.enabled = true;
             }
         } else {
             Debug.LogError("Assets Loader or Snap Scrolling is null.");
+        }
+    }
+
+    private void StopAll(ToolboxItem item) {
+        foreach (ToolboxItem toolboxItem in _toolboxItems) {
+            if (item == toolboxItem) continue;
+            toolboxItem.Stop();
         }
     }
 

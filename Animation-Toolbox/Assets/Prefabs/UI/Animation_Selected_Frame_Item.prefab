@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224413187650074610}
   - component: {fileID: 114857567163634498}
+  - component: {fileID: 114591794615194176}
   m_Layer: 5
   m_Name: Animation_Selected_Frame_Item
   m_TagString: Untagged
@@ -205,6 +206,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114591794615194176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201594443392644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd749bcde1a96a44da888c08a25fca56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animTarget: {fileID: 0}
+  animationName: 
+  repeatRate: 0
 --- !u!114 &114630636703681982
 MonoBehaviour:
   m_ObjectHideFlags: 1
