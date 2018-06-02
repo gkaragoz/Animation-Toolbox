@@ -861,6 +861,16 @@ MonoBehaviour:
     assets: []
   - folderName: Animations/Allosaurus/stand_pose
     assets: []
+  - folderName: Animations/Allosaurus/attack_01
+    assets: []
+  - folderName: Animations/Allosaurus/death
+    assets: []
+  - folderName: Animations/Allosaurus/idle_01
+    assets: []
+  - folderName: Animations/Allosaurus/turn_right
+    assets: []
+  - folderName: Animations/Allosaurus/turn_left
+    assets: []
 --- !u!1 &1034233946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,5 +1289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e59f253dae4bc45a50a1aa21330b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
   repeatRate: 0.01
   animTarget: {fileID: 356895849}

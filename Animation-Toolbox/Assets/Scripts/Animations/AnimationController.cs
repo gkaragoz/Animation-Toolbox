@@ -23,6 +23,8 @@ public class AnimationController : MonoBehaviour {
 
     private float _nextFrameTime;
 
+    private const string ERR_SPRITE_ARRAY_IS_EMPTY = "Sprite array is empty!";
+
     IEnumerator Play() {
         while (_currentAnimation != null && Time.time >= _nextFrameTime) {
             _nextFrameTime = Time.time + frameRate;
@@ -61,6 +63,11 @@ public class AnimationController : MonoBehaviour {
     }
 
     public void Play(Sprite[] anim) {
+        if (anim == null) {
+            Debug.LogError(ERR_SPRITE_ARRAY_IS_EMPTY);
+            return;
+        }
+
         this._currentAnimation = anim;
 
         if (this._currentAnimation.Length > 1)
