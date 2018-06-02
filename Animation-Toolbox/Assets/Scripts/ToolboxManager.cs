@@ -1,7 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToolboxManager : MonoBehaviour {
+
+    public Animation animTarget;
 
     private SnapScrolling _snapScrolling;
     private AssetsLoader _assetsLoader;
@@ -18,9 +21,19 @@ public class ToolboxManager : MonoBehaviour {
             for (int ii = 0; ii < _assetsLoader.assetPackages.Length; ii++) {
                 AssetPackage assetPackage = _assetsLoader.assetPackages[ii];
 
-                AnimationManager newPanelAnimationManager = _snapScrolling.CreateAPanel().GetComponent<AnimationManager>();
+                GameObject newPanel = _snapScrolling.CreateAPanel();
+                AnimationManager newPanelAnimationManager = newPanel.GetComponent<AnimationManager>();
+
                 Sprite[] animationSprites = Array.ConvertAll(assetPackage.assets, sprites => sprites as Sprite);
-                newPanelAnimationManager.AddAnimationEntity(assetPackage.folderName, animationSprites);
+
+                string animationName = assetPackage.GetLeafFolderName();
+
+                newPanelAnimationManager.AddAnimationEntity(animationName, animationSprites);
+
+                newPanel.GetComponentInChildren<Button>().onClick.AddListener(delegate () {
+                    animTarget.Play(animationName);
+                });
+
                 newPanelAnimationManager.enabled = true;
             }
         } else {

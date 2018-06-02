@@ -496,6 +496,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 311128149}
+--- !u!111 &356895849 stripped
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: ea16a6198551a934b98cb893e86f13ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1352426502}
 --- !u!1 &444623937
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,9 +857,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assetPackages:
-  - folderName: Animations/Allosaurus/Run
+  - folderName: Animations/Allosaurus/run
     assets: []
-  - folderName: Animations/Allosaurus/StandPose
+  - folderName: Animations/Allosaurus/stand_pose
     assets: []
 --- !u!1 &1034233946
 GameObject:
@@ -1274,3 +1279,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e59f253dae4bc45a50a1aa21330b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTarget: {fileID: 356895849}

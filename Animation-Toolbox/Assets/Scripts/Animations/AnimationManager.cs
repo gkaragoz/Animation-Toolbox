@@ -35,4 +35,8 @@ public class AnimationManager : AnimationController {
     public void StopAnimation() {
         Stop();
     }
+
+    public string GetSelectedAnimationName() {
+        return _selectedAnimation.name;
+    }
 }

@@ -6,6 +6,13 @@ using UnityEngine;
 public class AssetPackage {
     public string folderName;
     public Object[] assets;
+
+    public string GetLeafFolderName() {
+        string[] splittedFolderName = folderName.Split('/');
+        int lastWordIndex = splittedFolderName.Length - 1;
+
+        return splittedFolderName[lastWordIndex];
+    }
 }
 
 public class AssetsLoader : MonoBehaviour {
