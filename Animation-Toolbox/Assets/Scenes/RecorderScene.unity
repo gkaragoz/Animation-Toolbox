@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400068, guid: ea16a6198551a934b98cb893e86f13ed, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400068, guid: ea16a6198551a934b98cb893e86f13ed, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -159,11 +159,15 @@ Prefab:
     - target: {fileID: 11100000, guid: ea16a6198551a934b98cb893e86f13ed, type: 2}
       propertyPath: m_Animation
       value: 
-      objectReference: {fileID: 7400006, guid: 14f8757a6cd9a9243a70fef61ebc4d17, type: 3}
+      objectReference: {fileID: 7400000, guid: 14f8757a6cd9a9243a70fef61ebc4d17, type: 3}
     - target: {fileID: 11100000, guid: ea16a6198551a934b98cb893e86f13ed, type: 2}
       propertyPath: m_Animations.Array.data[22]
       value: 
       objectReference: {fileID: 7400000, guid: 14f8757a6cd9a9243a70fef61ebc4d17, type: 3}
+    - target: {fileID: 11100000, guid: ea16a6198551a934b98cb893e86f13ed, type: 2}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea16a6198551a934b98cb893e86f13ed, type: 2}
   m_IsPrefabParent: 0
@@ -247,7 +251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 35, y: -135, z: 0}
 --- !u!114 &814615685
 MonoBehaviour:
@@ -262,17 +266,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_outputDir:
     m_root: 1
-    m_leaf: Capture/idle_03
+    m_leaf: Capture/test
     m_readOnly: 0
   m_resolution: 0
-  m_resolutionPercent: 100
+  m_resolutionPercent: 4
   m_resolutionWidth: 1920
   m_framerateMode: 1
   m_targetFramerate: 30
   m_fixDeltaTime: 1
   m_waitDeltaTime: 1
   m_captureEveryNthFrame: 1
-  m_captureControl: 1
+  m_captureControl: 0
   m_startFrame: 0
   m_endFrame: 300
   m_startTime: 0
@@ -425,8 +429,13 @@ Transform:
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1231292027 stripped
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: ea16a6198551a934b98cb893e86f13ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 385724761}
 --- !u!1 &1469792227
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +462,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -490,5 +499,49 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: 200, z: 0}
+--- !u!1 &1499869544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1499869545}
+  - component: {fileID: 1499869546}
+  m_Layer: 0
+  m_Name: _PNGSeqExporter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1499869545
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1499869544}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499869546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1499869544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f947288c14a05040b8cbbd21b4d962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAnimationClip: {fileID: 0}
+  outputDir: Capture/animationName
+  model: {fileID: 1231292027}
+  animationClips: []
