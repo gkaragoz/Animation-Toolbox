@@ -59,6 +59,8 @@ public class SnapScrolling : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (_panelInstances.Count <= 0) return;
+
         if (_contentRect.anchoredPosition.x <= _panelPositions[0].x && !_isScrolling || _contentRect.anchoredPosition.x <= _panelPositions[_panelPositions.Count-1].x && !_isScrolling)
             scrollRect.inertia = false;
 
