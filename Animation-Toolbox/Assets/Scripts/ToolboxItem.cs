@@ -13,9 +13,18 @@ public class ToolboxItem : MonoBehaviour {
     public float repeatRate;
 
     private Text _animationTextUI;
+    private RadialProgressBar _radialProgressBar;
 
     private void Awake() {
         _animationTextUI = GetComponentInChildren<Text>();
+        _radialProgressBar = GetComponentInChildren<RadialProgressBar>();
+    }
+
+    private void Update() {
+        if (_radialProgressBar != null) {
+            _radialProgressBar.SetMaxAmount(animTarget[animationName].clip.length);
+            _radialProgressBar.CurrentAmount = animTarget[animationName].time;
+        }
     }
 
     public void Init(Animation animTarget, string animationName, float repeatRate) {

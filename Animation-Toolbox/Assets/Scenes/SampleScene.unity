@@ -1290,5 +1290,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 0
-  repeatRate: 0.01
+  repeatRate: 1
   animTarget: {fileID: 356895849}
