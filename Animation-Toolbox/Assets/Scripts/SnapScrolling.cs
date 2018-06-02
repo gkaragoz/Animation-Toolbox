@@ -75,9 +75,7 @@ public class SnapScrolling : MonoBehaviour {
         }
 
         float scrollVelocity = Mathf.Abs(scrollRect.velocity.x);
-        Debug.Log(scrollVelocity);
         if (scrollVelocity < 400 && !_isScrolling) scrollRect.inertia = false;
-
         if (_isScrolling || scrollVelocity > 400) return;
 
         _contentVector.x = Mathf.SmoothStep(_contentRect.anchoredPosition.x, _panelPositions[_selectedPanelID].x, snapSpeed * Time.fixedDeltaTime);
