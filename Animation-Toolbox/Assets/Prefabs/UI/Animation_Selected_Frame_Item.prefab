@@ -237,32 +237,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   frameRate: 0.2
   _currentFrameIndex: 0
-  animationEntities:
-  - name: Run
-    sprites:
-    - {fileID: 21300000, guid: ddcbf5cfa5200814ead1ede2c72257d6, type: 3}
-    - {fileID: 21300000, guid: 0646e6961c9381b49a71c33f9d508820, type: 3}
-    - {fileID: 21300000, guid: 7460e6ac164b34740a853c9af047b32d, type: 3}
-    - {fileID: 21300000, guid: d9e744762ac908246b7ad822c57d68e1, type: 3}
-    - {fileID: 21300000, guid: 2006ba92890165f4391085c8f70a6eaf, type: 3}
-    - {fileID: 21300000, guid: 00925ac817f10b646922d2a5a595d0a1, type: 3}
-    - {fileID: 21300000, guid: 0f413a12eb6e720418509ae187d4ab8b, type: 3}
-    - {fileID: 21300000, guid: 2d976cc1246e5e946a6c80535fcb3d02, type: 3}
-    - {fileID: 21300000, guid: a163be8b5d285d44688b2fd56a83f6a9, type: 3}
-    - {fileID: 21300000, guid: 6b3f7c58c376bbc4793ea518076a33d9, type: 3}
-    - {fileID: 21300000, guid: 43b0201e1bfe22e43ac114b118c97674, type: 3}
-    - {fileID: 21300000, guid: d4d51d4864ddbb84bbc3dae2fc073246, type: 3}
-    - {fileID: 21300000, guid: f5e6b5619cac92848ac3b99be142170b, type: 3}
-    - {fileID: 21300000, guid: ee288a139c0030144986ce327591348e, type: 3}
-    - {fileID: 21300000, guid: 959e6fd61d9f7914a9ceda1c2b51ecad, type: 3}
-    - {fileID: 21300000, guid: d0427829b42542545bb1dea6fc33dc64, type: 3}
-    - {fileID: 21300000, guid: 6479873b62d229a4f8772b4b20bb9a47, type: 3}
-    - {fileID: 21300000, guid: 3b07aaf0b0d427e46b5f6d2bc0753ab8, type: 3}
-    - {fileID: 21300000, guid: 9e8337a91ddc1a4438fa084f98152142, type: 3}
-    - {fileID: 21300000, guid: 25de191c5fdb9e74394375a09b37cff5, type: 3}
-    - {fileID: 21300000, guid: fa5f8109f6852f1429c12403884ffbf5, type: 3}
-    - {fileID: 21300000, guid: cf703e34b306d9d419461543ae300f7b, type: 3}
-    - {fileID: 21300000, guid: 85277bd2c506e354a9f7c22cac5f2581, type: 3}
+  animationEntities: []
 --- !u!114 &114975263212770538
 MonoBehaviour:
   m_ObjectHideFlags: 1
