@@ -6,14 +6,14 @@ public class ToolboxManager : MonoBehaviour {
     private SnapScrolling _snapScrolling;
     private AssetsLoader _assetsLoader;
 
-    private void Awake() {
+    private void Start() {
         _snapScrolling = FindObjectOfType<SnapScrolling>();
         _assetsLoader = FindObjectOfType<AssetsLoader>();
-
+        _assetsLoader.onAssetsLoaded += OnAssetsLoaded;
         _assetsLoader.LoadAssets(typeof(Sprite));
     }
 
-    private void Start() {
+    private void OnAssetsLoaded() {
         if (_assetsLoader != null && _snapScrolling != null) {
             for (int ii = 0; ii < _assetsLoader.assetPackages.Length; ii++) {
                 AssetPackage assetPackage = _assetsLoader.assetPackages[ii];

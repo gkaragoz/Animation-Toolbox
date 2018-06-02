@@ -10,6 +10,9 @@ public class AssetPackage {
 
 public class AssetsLoader : MonoBehaviour {
 
+    public delegate void AssetsLoaded();
+    public AssetsLoaded onAssetsLoaded;
+
     [Header("Initialization")]
     public AssetPackage[] assetPackages;
 
@@ -17,6 +20,10 @@ public class AssetsLoader : MonoBehaviour {
         for (int ii = 0; ii < assetPackages.Length; ii++) {
             string folderName = assetPackages[ii].folderName;
             assetPackages[ii].assets = Resources.LoadAll(folderName, type);
+        }
+
+        if (onAssetsLoaded != null) {
+            onAssetsLoaded();
         }
     }
 
