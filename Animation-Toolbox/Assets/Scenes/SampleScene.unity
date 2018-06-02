@@ -1217,6 +1217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1988279915}
   - component: {fileID: 1988279916}
+  - component: {fileID: 1988279917}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1260,3 +1261,14 @@ MonoBehaviour:
   panelPrefab: {fileID: 1201594443392644, guid: 2f70625268f144243ac36d9d0c8046e7,
     type: 2}
   scrollRect: {fileID: 610187727}
+--- !u!114 &1988279917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1988279914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e59f253dae4bc45a50a1aa21330b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
