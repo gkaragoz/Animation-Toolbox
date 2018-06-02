@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssetsLoader : MonoBehaviour {
+[System.Serializable]
+public class AssetPackage {
+    public string folderName;
+    public Object[] assets;
+}
 
-    [System.Serializable]
-    public class AssetPackage {
-        public string folderName;
-        public Object[] assets;
-    }
+public class AssetsLoader : MonoBehaviour {
 
     [Header("Initialization")]
     public AssetPackage[] assetPackages;
 
-	void Awake () {
-        LoadAssets();
-    }
-
-    void LoadAssets() {
+    public void LoadAssets(System.Type type) {
         for (int ii = 0; ii < assetPackages.Length; ii++) {
             string folderName = assetPackages[ii].folderName;
-            assetPackages[ii].assets = Resources.LoadAll(folderName);
+            assetPackages[ii].assets = Resources.LoadAll(folderName, type);
         }
     }
 

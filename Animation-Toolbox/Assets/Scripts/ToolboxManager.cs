@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class ToolboxManager : MonoBehaviour {
@@ -10,11 +9,23 @@ public class ToolboxManager : MonoBehaviour {
     private void Awake() {
         _snapScrolling = FindObjectOfType<SnapScrolling>();
         _assetsLoader = FindObjectOfType<AssetsLoader>();
+
+        _assetsLoader.LoadAssets(typeof(Sprite));
     }
 
     private void Start() {
-        for (int ii = 0; ii < 10; ii++) {
-            _snapScrolling.CreateAPanel();
+        if (_assetsLoader != null && _snapScrolling != null) {
+            for (int ii = 0; ii < _assetsLoader.assetPackages.Length; ii++) {
+                AssetPackage assetPackage = _assetsLoader.assetPackages[ii];
+
+                AnimationManager newPanelAnimationManager = _snapScrolling.CreateAPanel().GetComponent<AnimationManager>();
+                Sprite[] animationSprites = Array.ConvertAll(assetPackage.assets, sprites => sprites as Sprite);
+                newPanelAnimationManager.AddAnimationEntity(assetPackage.folderName, animationSprites);
+                newPanelAnimationManager.enabled = true;
+            }
+        } else {
+            Debug.LogError("Assets Loader or Snap Scrolling is null.");
         }
     }
+
 }
