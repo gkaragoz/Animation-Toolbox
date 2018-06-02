@@ -12,10 +12,17 @@ public class ToolboxItem : MonoBehaviour {
     public string animationName;
     public float repeatRate;
 
+    private Text _animationTextUI;
+
+    private void Awake() {
+        _animationTextUI = GetComponentInChildren<Text>();
+    }
+
     public void Init(Animation animTarget, string animationName, float repeatRate) {
         this.animTarget = animTarget;
         this.animationName = animationName;
         this.repeatRate = repeatRate;
+        this._animationTextUI.text = animationName;
 
         GetComponentInChildren<Button>().onClick.AddListener(delegate () {
             Stop();
