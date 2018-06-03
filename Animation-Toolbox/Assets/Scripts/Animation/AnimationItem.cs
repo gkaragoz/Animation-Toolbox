@@ -1,11 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class AnimationItem : Toolbox {
     public delegate void ClickEventHandler(AnimationItem item);
     public event ClickEventHandler OnClicked;
+
+    public delegate void SetAnimationEventHandler(Animator animTarget, string animationName);
+    public event SetAnimationEventHandler OnSetAnimation;
 
     public float repeatRate;
     
@@ -22,7 +24,21 @@ public class AnimationItem : Toolbox {
                 OnClicked.Invoke(this);
             }
 
-            StartCoroutine(Play());
+            switch (ToolboxManager.instance.currentState) {
+                case ToolboxManager.TabState.Animations:
+                StartCoroutine(Play());
+                break;
+                case ToolboxManager.TabState.Sequence:
+                break;
+                case ToolboxManager.TabState.AnimationSelectionForSequence:
+                if (OnSetAnimation != null) {
+                    OnSetAnimation.Invoke(animTarget, animationName);
+                }
+                break;
+                default:
+                Debug.LogError("There is no such a state.");
+                break;
+            }
         });
     }
 

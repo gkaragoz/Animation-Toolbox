@@ -376,6 +376,26 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114178136915195004, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: animationsTab
+      value: 
+      objectReference: {fileID: 2039316098}
+    - target: {fileID: 114248459971684880, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: animationsTab
+      value: 
+      objectReference: {fileID: 2039316098}
+    - target: {fileID: 114178136915195004, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: sequenceTab
+      value: 
+      objectReference: {fileID: 456696018}
+    - target: {fileID: 114248459971684880, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: sequenceTab
+      value: 
+      objectReference: {fileID: 456696018}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec, type: 2}
   m_IsPrefabParent: 0
@@ -868,6 +888,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1017698838}
+        m_MethodName: SetState
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &456696019
@@ -1303,6 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetAnim: {fileID: 1352426504}
+  currentState: 0
 --- !u!114 &1017698839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2236,6 +2268,17 @@ MonoBehaviour:
       - m_Target: {fileID: 602287182}
         m_MethodName: SetAsLastSibling
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1017698838}
+        m_MethodName: SetState
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

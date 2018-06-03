@@ -4,8 +4,15 @@ using UnityEngine;
 public class ToolboxManager : MonoBehaviour {
     public static ToolboxManager instance;
 
+    public enum TabState {
+        Animations = 0,
+        Sequence = 1,
+        AnimationSelectionForSequence = 2
+    }
+
     [Header("Initialize")]
     public Animator targetAnim;
+    public TabState currentState;
 
     private AnimationManager _animationManager;
     private SequenceManager _sequenceManager;
@@ -28,5 +35,14 @@ public class ToolboxManager : MonoBehaviour {
     private void OnAssetsLoaded(AssetPackage[] assetPackages) {
         _animationManager.Create(assetPackages);
         _sequenceManager.Initialize();
+    }
+
+    public void SetState(TabState state) {
+        this.currentState = state;
+    }
+
+    // Unity didn't implement this enum attribute on editor inspector for any kind of trigger event paramaters. This is why I'm using int overload method.
+    public void SetState(int state) {
+        this.currentState = (TabState)state;
     }
 }

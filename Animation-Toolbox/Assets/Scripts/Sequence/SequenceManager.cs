@@ -14,6 +14,17 @@ public class SequenceManager : MonoBehaviour {
     public Sprite startButtonSprite;
     public Sprite stopButtonSprite;
 
+    private SequenceItem _selectedItem;
+    public SequenceItem SelectedItem {
+        get {
+            return _selectedItem;
+        }
+        set {
+            _selectedItem = value;
+            _selectedItem.RegisterOnSetAnimation();
+        }
+    }
+
     private bool _isPlaying;
 
     public void Initialize() {
