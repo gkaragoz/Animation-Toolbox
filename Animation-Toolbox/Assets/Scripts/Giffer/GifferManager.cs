@@ -19,13 +19,15 @@ public class GifferManager : GifferController {
     private AnimationEntity _selectedAnimation;
 
     void Start() {
-        _selectedAnimation = animationEntities[0];
         StartAnimation();
     }
 
     public void SetSingleAnimationEntity(string name, Sprite[] sprites) {
         animationEntities = new List<AnimationEntity>();
         animationEntities.Add(new AnimationEntity(name, sprites));
+
+        StopAnimation();
+        StartAnimation();
     }
 
     public void AddAnimationEntity(string name, Sprite[] sprites) {
@@ -33,6 +35,7 @@ public class GifferManager : GifferController {
     }
 
     public void StartAnimation() {
+        _selectedAnimation = animationEntities[0];
         Play(_selectedAnimation.sprites);
     }
 

@@ -77,6 +77,7 @@ public class GifferController : MonoBehaviour {
     }
 
     public void Stop() {
+        _currentAnimation = null;
         StopAllCoroutines();
     }
 
