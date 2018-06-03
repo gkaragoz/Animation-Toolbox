@@ -5,20 +5,7 @@ using UnityEngine.UI;
 
 public class AnimationItem : Toolbox {
     public override event ClickEventHandler OnClicked;
-
-    private void Update() {
-        if (RadialProgressBar != null) {
-            AnimatorStateInfo animationState = animTarget.GetCurrentAnimatorStateInfo(0);
-            AnimatorClipInfo[] myAnimatorClip = animTarget.GetCurrentAnimatorClipInfo(0);
-
-            if (animationState.IsName(animationName)) {
-                float myTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
-                RadialProgressBar.SetMaxAmount(myAnimatorClip[0].clip.length);
-                RadialProgressBar.CurrentAmount = myTime;
-            }
-        }
-    }
-
+    
     public void Init(Animator animTarget, string animationName, float repeatRate) {
         this.animTarget = animTarget;
         this.animationName = animationName;

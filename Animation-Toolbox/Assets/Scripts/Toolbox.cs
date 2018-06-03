@@ -21,4 +21,17 @@ public abstract class Toolbox : MonoBehaviour {
         AnimationTextUI = GetComponentInChildren<Text>();
         RadialProgressBar = GetComponentInChildren<RadialProgressBar>();
     }
+
+    public virtual void Update() {
+        if (RadialProgressBar != null) {
+            AnimatorStateInfo animationState = animTarget.GetCurrentAnimatorStateInfo(0);
+            AnimatorClipInfo[] myAnimatorClip = animTarget.GetCurrentAnimatorClipInfo(0);
+
+            if (animationState.IsName(animationName)) {
+                float myTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
+                RadialProgressBar.SetMaxAmount(myAnimatorClip[0].clip.length);
+                RadialProgressBar.CurrentAmount = myTime;
+            }
+        }
+    }
 }
