@@ -16,7 +16,11 @@ public class RadialProgressBar : MonoBehaviour {
         }
         set {
             _currentAmount = value;
-            loadingBar.GetComponent<Image>().fillAmount = _currentAmount / maxAmount;
+
+            if (maxAmount == 0)
+                loadingBar.GetComponent<Image>().fillAmount = 0f;
+            else
+                loadingBar.GetComponent<Image>().fillAmount = _currentAmount / maxAmount;
         }
     }
 
