@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ToolboxItem : MonoBehaviour {
+public abstract class Toolbox : MonoBehaviour {
     public Animator animTarget;
     public string animationName;
     public float repeatRate;

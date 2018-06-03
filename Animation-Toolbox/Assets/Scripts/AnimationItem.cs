@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnimationItem : ToolboxItem {
+public class AnimationItem : Toolbox {
     public override event ClickEventHandler OnClicked;
 
     private void Update() {
