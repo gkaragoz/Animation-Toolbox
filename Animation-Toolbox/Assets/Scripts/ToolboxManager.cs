@@ -10,7 +10,7 @@ public class ToolboxManager : MonoBehaviour {
     [Range(0.01f, 2f)]
     [Tooltip("Only works on debugMode has checked.")]
     public float repeatRate = 0.5f;
-    public Animation animTarget;
+    public Animator animTarget;
 
     private SnapScrolling _snapScrolling;
     private AssetsLoader _assetsLoader;

@@ -8,7 +8,7 @@ public class ToolboxItem : MonoBehaviour {
     public delegate void Clicked(ToolboxItem item);
     public Clicked onClicked;
 
-    public Animation animTarget;
+    public Animator animTarget;
     public string animationName;
     public float repeatRate;
 
@@ -22,12 +22,19 @@ public class ToolboxItem : MonoBehaviour {
 
     private void Update() {
         if (_radialProgressBar != null) {
-            _radialProgressBar.SetMaxAmount(animTarget[animationName].clip.length);
-            _radialProgressBar.CurrentAmount = animTarget[animationName].time;
+            //AnimatorStateInfo animationState = animTarget.GetCurrentAnimatorStateInfo(0);
+            //AnimatorClipInfo[] myAnimatorClip = animTarget.GetCurrentAnimatorClipInfo(0);
+            //string clipName = myAnimatorClip[0].clip.name;
+
+            //if (animationState.IsName(animationName)) {
+            //    float myTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
+            //    _radialProgressBar.SetMaxAmount(myAnimatorClip[0].clip.length);
+            //    _radialProgressBar.CurrentAmount = myTime;
+            //}
         }
     }
 
-    public void Init(Animation animTarget, string animationName, float repeatRate) {
+    public void Init(Animator animTarget, string animationName, float repeatRate) {
         this.animTarget = animTarget;
         this.animationName = animationName;
         this.repeatRate = repeatRate;
@@ -46,7 +53,7 @@ public class ToolboxItem : MonoBehaviour {
 
     public IEnumerator Play() {
         while (true) {
-            animTarget.Play(animationName);
+            animTarget.CrossFade(animationName, 0.05f);
             yield return new WaitForSeconds(repeatRate);
         }
     }
