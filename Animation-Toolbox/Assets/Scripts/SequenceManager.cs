@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SequenceManager : MonoBehaviour {
 
-    //public void InitializeSequenceItems() {
-    //    sequenceItems = FindObjectsOfType<SequenceItem>().ToList();
-    //}
+    public List<SequenceItem> sequenceItems = new List<SequenceItem>();
+
+    public List<SequenceItem> Initialize() {
+        sequenceItems = FindObjectsOfType<SequenceItem>().ToList();
+        return sequenceItems;
+    }
 
     public void StartSequence() {
 

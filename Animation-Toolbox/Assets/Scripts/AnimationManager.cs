@@ -30,7 +30,7 @@ public class AnimationManager : MonoBehaviour {
         }
     }
 
-    public List<AnimationItem> CreateAnimationItems(AssetPackage[] assetPackages) {
+    public List<AnimationItem> Create(AssetPackage[] assetPackages) {
         if (_snapScrolling != null) {
             for (int ii = 0; ii < assetPackages.Length; ii++) {
                 AssetPackage assetPackage = assetPackages[ii];

@@ -31,8 +31,7 @@ public class ToolboxManager : MonoBehaviour {
     }
 
     private void OnAssetsLoaded(AssetPackage[] assetPackages) {
-        animationItems = _animationManager.CreateAnimationItems(assetPackages);
-
-        //_sequenceManager.Inititialize();
+        animationItems = _animationManager.Create(assetPackages);
+        sequenceItems = _sequenceManager.Initialize();
     }
 }
