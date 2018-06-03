@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class SequenceItem : Toolbox {
 
     public Button animationsTab;
     public Button sequenceTab;
+    public GameObject contentImageObj;
+    public GameObject iconImageObj;
 
     private Button _buttonUI;
     private AnimationManager _animationManager;
@@ -43,6 +46,16 @@ public class SequenceItem : Toolbox {
     public void InitializeSequenceItem(Animator animator, string animationName) {
         this.animTarget = animator;
         this.animationName = animationName;
+
+        var loadedAsset = AssetsLoader.instance.GetLoadedAsset(this.animationName);
+        Sprite[] animationSprites = Array.ConvertAll(loadedAsset, sprites => sprites as Sprite);
+
+        GifferManager gifferManager = GetComponent<GifferManager>();
+        gifferManager.SetSingleAnimationEntity(animationName, animationSprites);
+        gifferManager.enabled = true;
+
+        contentImageObj.SetActive(true);
+        iconImageObj.SetActive(false);
 
         ClearRegistrationsOnSetAnimation();
         sequenceTab.onClick.Invoke();

@@ -4,11 +4,11 @@ using UnityEngine;
 
 [System.Serializable]
 public class AssetPackage {
-    public string folderName;
+    public string folderPath;
     public Object[] assets;
 
-    public string GetLeafFolderName() {
-        string[] splittedFolderName = folderName.Split('/');
+    public string GetAssetName() {
+        string[] splittedFolderName = folderPath.Split('/');
         int lastWordIndex = splittedFolderName.Length - 1;
 
         return splittedFolderName[lastWordIndex];
@@ -17,15 +17,22 @@ public class AssetPackage {
 
 public class AssetsLoader : MonoBehaviour {
 
+    public static AssetsLoader instance;
+
     public delegate void AssetLoaderEventHandler(AssetPackage[] assetPackages);
     public event AssetLoaderEventHandler OnAssetsLoaded;
 
     [Header("Initialization")]
     public AssetPackage[] assetPackages;
 
+    private void Awake() {
+        if (instance == null)
+            instance = this;
+    }
+
     public void LoadAssets(System.Type type) {
         for (int ii = 0; ii < assetPackages.Length; ii++) {
-            string folderName = assetPackages[ii].folderName;
+            string folderName = assetPackages[ii].folderPath;
             assetPackages[ii].assets = Resources.LoadAll(folderName, type);
         }
 
@@ -34,13 +41,12 @@ public class AssetsLoader : MonoBehaviour {
         }
     }
 
-    public Object[] GetLoadedAsset(string folderName) {
+    public Object[] GetLoadedAsset(string assetName) {
         foreach (AssetPackage package in assetPackages) {
-            if (package.folderName == folderName) {
+            if (package.GetAssetName() == assetName) {
                 return package.assets;
             }
         }
         return null;
     }
-	
 }

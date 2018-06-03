@@ -23,6 +23,11 @@ public class GifferManager : GifferController {
         StartAnimation();
     }
 
+    public void SetSingleAnimationEntity(string name, Sprite[] sprites) {
+        animationEntities = new List<AnimationEntity>();
+        animationEntities.Add(new AnimationEntity(name, sprites));
+    }
+
     public void AddAnimationEntity(string name, Sprite[] sprites) {
         animationEntities.Add(new AnimationEntity(name, sprites));
     }

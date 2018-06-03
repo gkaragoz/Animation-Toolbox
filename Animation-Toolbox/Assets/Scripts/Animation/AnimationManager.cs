@@ -37,20 +37,20 @@ public class AnimationManager : MonoBehaviour {
 
                 GameObject newPanel = _snapScrolling.CreateAPanel();
 
-                GifferManager newPanelAnimationManager = newPanel.GetComponent<GifferManager>();
+                GifferManager newPanelGifferManager = newPanel.GetComponent<GifferManager>();
 
                 Sprite[] animationSprites = Array.ConvertAll(assetPackage.assets, sprites => sprites as Sprite);
 
-                string animationName = assetPackage.GetLeafFolderName();
+                string animationName = assetPackage.GetAssetName();
 
-                newPanelAnimationManager.AddAnimationEntity(animationName, animationSprites);
+                newPanelGifferManager.AddAnimationEntity(animationName, animationSprites);
 
                 AnimationItem animationItem = newPanel.AddComponent<AnimationItem>();
                 animationItem.Init(_targetAnim, animationName, repeatRate);
                 animationItem.OnClicked += StopAllAnimationItems;
                 animationItems.Add(animationItem);
 
-                newPanelAnimationManager.enabled = true;
+                newPanelGifferManager.enabled = true;
             }
         } else {
             Debug.LogError("Snap Scrolling is null.");
