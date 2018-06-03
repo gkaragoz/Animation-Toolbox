@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class RadialProgressBar : MonoBehaviour {
 
     public Transform loadingBar;
