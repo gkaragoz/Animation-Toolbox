@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnimationController : MonoBehaviour {
+public class GifferController : MonoBehaviour {
 
     public enum SourceType {
         Image,

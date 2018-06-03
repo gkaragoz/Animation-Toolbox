@@ -40,7 +40,7 @@ public class ToolboxManager : MonoBehaviour {
                 AssetPackage assetPackage = _assetsLoader.assetPackages[ii];
 
                 GameObject newPanel = _snapScrolling.CreateAPanel();
-                AnimationManager newPanelAnimationManager = newPanel.GetComponent<AnimationManager>();
+                GifferManager newPanelAnimationManager = newPanel.GetComponent<GifferManager>();
 
                 Sprite[] animationSprites = Array.ConvertAll(assetPackage.assets, sprites => sprites as Sprite);
 
