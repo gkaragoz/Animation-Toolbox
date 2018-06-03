@@ -19,7 +19,7 @@ public class ToolboxManager : MonoBehaviour {
     private void Start() {
         _snapScrolling = FindObjectOfType<SnapScrolling>();
         _assetsLoader = FindObjectOfType<AssetsLoader>();
-        _assetsLoader.onAssetsLoaded += OnAssetsLoaded;
+        _assetsLoader.OnAssetsLoaded += OnAssetsLoaded;
         _assetsLoader.LoadAssets(typeof(Sprite));
 
         ThirdPersonCharacter character = animTarget.GetComponent<ThirdPersonCharacter>();
@@ -34,29 +34,33 @@ public class ToolboxManager : MonoBehaviour {
         }
     }
 
-    private void OnAssetsLoaded() {
-        if (_assetsLoader != null && _snapScrolling != null) {
-            for (int ii = 0; ii < _assetsLoader.assetPackages.Length; ii++) {
-                AssetPackage assetPackage = _assetsLoader.assetPackages[ii];
-
-                GameObject newPanel = _snapScrolling.CreateAPanel();
-                GifferManager newPanelAnimationManager = newPanel.GetComponent<GifferManager>();
-
-                Sprite[] animationSprites = Array.ConvertAll(assetPackage.assets, sprites => sprites as Sprite);
-
-                string animationName = assetPackage.GetLeafFolderName();
-
-                newPanelAnimationManager.AddAnimationEntity(animationName, animationSprites);
-
-                AnimationItem animationItem = newPanel.AddComponent<AnimationItem>();
-                animationItem.Init(animTarget, animationName, repeatRate);
-                animationItem.OnClicked += StopAll;
-                _animationItems.Add(animationItem);
-
-                newPanelAnimationManager.enabled = true;
-            }
+    private void OnAssetsLoaded(AssetPackage[] assetPackages) {
+        if (_snapScrolling != null) {
+            CreateAnimationItems(assetPackages);
         } else {
-            Debug.LogError("Assets Loader or Snap Scrolling is null.");
+            Debug.LogError("Snap Scrolling is null.");
+        }
+    }
+
+    private void CreateAnimationItems(AssetPackage[] assetPackages) {
+        for (int ii = 0; ii < assetPackages.Length; ii++) {
+            AssetPackage assetPackage = assetPackages[ii];
+
+            GameObject newPanel = _snapScrolling.CreateAPanel();
+            GifferManager newPanelAnimationManager = newPanel.GetComponent<GifferManager>();
+
+            Sprite[] animationSprites = Array.ConvertAll(assetPackage.assets, sprites => sprites as Sprite);
+
+            string animationName = assetPackage.GetLeafFolderName();
+
+            newPanelAnimationManager.AddAnimationEntity(animationName, animationSprites);
+
+            AnimationItem animationItem = newPanel.AddComponent<AnimationItem>();
+            animationItem.Init(animTarget, animationName, repeatRate);
+            animationItem.OnClicked += StopAll;
+            _animationItems.Add(animationItem);
+
+            newPanelAnimationManager.enabled = true;
         }
     }
 

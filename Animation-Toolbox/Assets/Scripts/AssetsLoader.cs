@@ -17,8 +17,8 @@ public class AssetPackage {
 
 public class AssetsLoader : MonoBehaviour {
 
-    public delegate void AssetsLoaded();
-    public AssetsLoaded onAssetsLoaded;
+    public delegate void AssetLoaderEventHandler(AssetPackage[] assetPackages);
+    public event AssetLoaderEventHandler OnAssetsLoaded;
 
     [Header("Initialization")]
     public AssetPackage[] assetPackages;
@@ -29,8 +29,8 @@ public class AssetsLoader : MonoBehaviour {
             assetPackages[ii].assets = Resources.LoadAll(folderName, type);
         }
 
-        if (onAssetsLoaded != null) {
-            onAssetsLoaded();
+        if (OnAssetsLoaded != null) {
+            OnAssetsLoaded.Invoke(assetPackages);
         }
     }
 
