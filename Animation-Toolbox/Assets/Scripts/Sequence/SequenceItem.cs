@@ -13,6 +13,7 @@ public class SequenceItem : Toolbox {
     public GameObject contentImageObj;
     public GameObject iconImageObj;
 
+    private Text _textUI;
     private Button _buttonUI;
     private AnimationManager _animationManager;
     private SequenceManager _sequenceManager;
@@ -20,6 +21,8 @@ public class SequenceItem : Toolbox {
     private void Awake() {
         _animationManager = FindObjectOfType<AnimationManager>();
         _sequenceManager = FindObjectOfType<SequenceManager>();
+
+        _textUI = GetComponentInChildren<Text>();
 
         _buttonUI = GetComponentInChildren<Button>();
         _buttonUI.onClick.AddListener(delegate () {
@@ -56,6 +59,8 @@ public class SequenceItem : Toolbox {
 
         contentImageObj.SetActive(true);
         iconImageObj.SetActive(false);
+
+        _textUI.text = animationName;
 
         ClearRegistrationsOnSetAnimation();
         sequenceTab.onClick.Invoke();
