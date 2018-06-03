@@ -11,6 +11,8 @@ public class SequenceManager : MonoBehaviour {
 
     public Transform content;
     public Button startStopButtonUI;
+    public Sprite startButtonSprite;
+    public Sprite stopButtonSprite;
 
     private bool _isPlaying;
 
@@ -29,6 +31,8 @@ public class SequenceManager : MonoBehaviour {
     }
 
     public void StartSequence() {
+        startStopButtonUI.transform.Find("Icon").GetComponent<Image>().sprite = stopButtonSprite;
+
         foreach (Timer timer in timers) {
             StartCoroutine(timer.Play());
         }
@@ -36,6 +40,8 @@ public class SequenceManager : MonoBehaviour {
     }
 
     public void StopSequence() {
+        startStopButtonUI.transform.Find("Icon").GetComponent<Image>().sprite = startButtonSprite;
+
         foreach (Timer timer in timers) {
             timer.Stop();
         }

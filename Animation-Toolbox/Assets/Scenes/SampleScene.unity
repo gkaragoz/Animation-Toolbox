@@ -365,6 +365,17 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114715547259338000, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd1cb5884658b314bb6fa3fab2d87346,
+        type: 3}
+    - target: {fileID: 224151323405285488, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec, type: 2}
   m_IsPrefabParent: 0
@@ -1296,6 +1307,8 @@ MonoBehaviour:
   timers: []
   content: {fileID: 500687793}
   startStopButtonUI: {fileID: 1134070115}
+  startButtonSprite: {fileID: 21300000, guid: bd1cb5884658b314bb6fa3fab2d87346, type: 3}
+  stopButtonSprite: {fileID: 21300000, guid: 7d1cbd3420935d940869ae419cd75c3b, type: 3}
 --- !u!114 &1017698840
 MonoBehaviour:
   m_ObjectHideFlags: 0
