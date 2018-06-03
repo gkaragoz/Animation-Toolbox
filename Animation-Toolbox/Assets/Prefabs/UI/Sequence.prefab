@@ -212,7 +212,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224101586323621924}
   - component: {fileID: 114165100353955968}
-  - component: {fileID: 114626865765740594}
   m_Layer: 5
   m_Name: Animation_Selected_Frame_Item
   m_TagString: Untagged
@@ -297,7 +296,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224516668590588412}
   - component: {fileID: 114635481368420300}
-  - component: {fileID: 114661558171291532}
   m_Layer: 5
   m_Name: Animation_Selected_Frame_Item
   m_TagString: Untagged
@@ -1199,20 +1197,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114626865765740594
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1311877883010836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd749bcde1a96a44da888c08a25fca56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animTarget: {fileID: 0}
-  animationName: 
-  repeatRate: 0
 --- !u!114 &114635481368420300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1257,20 +1241,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114661558171291532
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1559156101926336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd749bcde1a96a44da888c08a25fca56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animTarget: {fileID: 0}
-  animationName: 
-  repeatRate: 0
 --- !u!114 &114696054673885310
 MonoBehaviour:
   m_ObjectHideFlags: 1
