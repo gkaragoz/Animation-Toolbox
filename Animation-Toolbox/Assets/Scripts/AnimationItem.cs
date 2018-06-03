@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class AnimationItem : Toolbox {
     public override event ClickEventHandler OnClicked;
+
+    public float repeatRate;
     
     public void Init(Animator animTarget, string animationName, float repeatRate) {
         this.animTarget = animTarget;

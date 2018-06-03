@@ -1000,8 +1000,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1017698836}
   - component: {fileID: 1017698837}
+  - component: {fileID: 1017698838}
+  - component: {fileID: 1017698840}
+  - component: {fileID: 1017698839}
   m_Layer: 0
-  m_Name: _AssetsLoader
+  m_Name: _MANAGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,6 +1049,45 @@ MonoBehaviour:
     assets: []
   - folderName: Animations/Allosaurus/turn_left
     assets: []
+--- !u!114 &1017698838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1017698835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e59f253dae4bc45a50a1aa21330b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAnim: {fileID: 1352426504}
+  animationItems: []
+  sequenceItems: []
+--- !u!114 &1017698839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1017698835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b554cf341cf0f44a4b14d5d08988f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1017698840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1017698835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d315d0e046aef294eb28ed87939ec175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationItems: []
+  debugMode: 0
+  repeatRate: 1.5
 --- !u!1 &1034233946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,7 +1967,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1988279915}
   - component: {fileID: 1988279916}
-  - component: {fileID: 1988279917}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1969,20 +2010,6 @@ MonoBehaviour:
   panelPrefab: {fileID: 1201594443392644, guid: 2f70625268f144243ac36d9d0c8046e7,
     type: 2}
   scrollRect: {fileID: 610187727}
---- !u!114 &1988279917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1988279914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3e59f253dae4bc45a50a1aa21330b50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugMode: 0
-  repeatRate: 2
-  animTarget: {fileID: 1352426504}
 --- !u!1 &2039316096
 GameObject:
   m_ObjectHideFlags: 0

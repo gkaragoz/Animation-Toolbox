@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public abstract class Toolbox : MonoBehaviour {
     public Animator animTarget;
     public string animationName;
-    public float repeatRate;
 
     protected Text AnimationTextUI { get; set; }
     protected RadialProgressBar RadialProgressBar { get; set; }
