@@ -1551,7 +1551,7 @@ MonoBehaviour:
   upperBodyParts:
   - {fileID: 398025689}
   - {fileID: 1341769503}
-  _movementSpeed: 2
+  _movementSpeed: 4
   _movingTurnSpeed: 135
   _stationaryTurnSpeed: 67.5
 --- !u!54 &1352426510
