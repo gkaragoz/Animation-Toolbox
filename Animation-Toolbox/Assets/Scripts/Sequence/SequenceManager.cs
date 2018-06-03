@@ -64,15 +64,19 @@ public class SequenceManager : MonoBehaviour {
             timer.ActivateButtons();
         }
 
-        //Implement sequence items.
+        foreach (SequenceItem sequenceItem in sequenceItems) {
+            sequenceItem.ActivateButton();
+        }
     }
 
     public void DisableContentButtons() {
         foreach (Timer timer in timers) {
             timer.DisableButtons();
         }
-        
-        //Implement sequence items.
+
+        foreach (SequenceItem sequenceItem in sequenceItems) {
+            sequenceItem.DisableButton();
+        }
     }
 
     public void AddToSequence() {

@@ -80,4 +80,12 @@ public class SequenceItem : Toolbox {
         RadialProgressBar.ResetAmount();
         StopAllCoroutines();
     }
+
+    public void ActivateButton() {
+        _buttonUI.interactable = true;
+    }
+
+    public void DisableButton() {
+        _buttonUI.interactable = false;
+    }
 }
