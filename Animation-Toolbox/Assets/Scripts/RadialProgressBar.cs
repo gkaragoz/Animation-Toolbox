@@ -25,4 +25,9 @@ public class RadialProgressBar : MonoBehaviour {
         maxAmount = amount;
     }
 
+    public void ResetAmount() {
+        maxAmount = 1f;
+        CurrentAmount = 0f;
+    }
+
 }

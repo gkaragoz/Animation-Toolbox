@@ -22,15 +22,14 @@ public class ToolboxItem : MonoBehaviour {
 
     private void Update() {
         if (_radialProgressBar != null) {
-            //AnimatorStateInfo animationState = animTarget.GetCurrentAnimatorStateInfo(0);
-            //AnimatorClipInfo[] myAnimatorClip = animTarget.GetCurrentAnimatorClipInfo(0);
-            //string clipName = myAnimatorClip[0].clip.name;
+            AnimatorStateInfo animationState = animTarget.GetCurrentAnimatorStateInfo(0);
+            AnimatorClipInfo[] myAnimatorClip = animTarget.GetCurrentAnimatorClipInfo(0);
 
-            //if (animationState.IsName(animationName)) {
-            //    float myTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
-            //    _radialProgressBar.SetMaxAmount(myAnimatorClip[0].clip.length);
-            //    _radialProgressBar.CurrentAmount = myTime;
-            //}
+            if (animationState.IsName(animationName)) {
+                float myTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
+                _radialProgressBar.SetMaxAmount(myAnimatorClip[0].clip.length);
+                _radialProgressBar.CurrentAmount = myTime;
+            }
         }
     }
 
@@ -64,6 +63,7 @@ public class ToolboxItem : MonoBehaviour {
     }
 
     public void Stop() {
+        _radialProgressBar.ResetAmount();
         StopAllCoroutines();
     }
 
