@@ -14,7 +14,7 @@ public class ToolboxManager : MonoBehaviour {
 
     private SnapScrolling _snapScrolling;
     private AssetsLoader _assetsLoader;
-    private List<ToolboxItem> _toolboxItems = new List<ToolboxItem>();
+    private List<AnimationItem> _animationItems = new List<AnimationItem>();
 
     private void Start() {
         _snapScrolling = FindObjectOfType<SnapScrolling>();
@@ -28,8 +28,8 @@ public class ToolboxManager : MonoBehaviour {
 
     private void Update() {
         if (debugMode) {
-            for (int ii = 0; ii < _toolboxItems.Count; ii++) {
-                _toolboxItems[ii].SetRepeatRate(repeatRate);
+            for (int ii = 0; ii < _animationItems.Count; ii++) {
+                _animationItems[ii].SetRepeatRate(repeatRate);
             }
         }
     }
@@ -48,10 +48,10 @@ public class ToolboxManager : MonoBehaviour {
 
                 newPanelAnimationManager.AddAnimationEntity(animationName, animationSprites);
 
-                ToolboxItem toolboxItem = newPanel.GetComponent<ToolboxItem>();
-                toolboxItem.Init(animTarget, animationName, repeatRate);
-                toolboxItem.onClicked += StopAll;
-                _toolboxItems.Add(toolboxItem);
+                AnimationItem animationItem = newPanel.AddComponent<AnimationItem>();
+                animationItem.Init(animTarget, animationName, repeatRate);
+                animationItem.OnClicked += StopAll;
+                _animationItems.Add(animationItem);
 
                 newPanelAnimationManager.enabled = true;
             }
@@ -61,15 +61,15 @@ public class ToolboxManager : MonoBehaviour {
     }
 
     private void StopAll() {
-        foreach (ToolboxItem toolboxItem in _toolboxItems) {
-            toolboxItem.Stop();
+        foreach (AnimationItem animationItem in _animationItems) {
+            animationItem.Stop();
         }
     }
 
-    private void StopAll(ToolboxItem item) {
-        foreach (ToolboxItem toolboxItem in _toolboxItems) {
-            if (item == toolboxItem) continue;
-            toolboxItem.Stop();
+    public void StopAll(AnimationItem item) {
+        foreach (AnimationItem animationItem in _animationItems) {
+            if (item == animationItem) continue;
+            animationItem.Stop();
         }
     }
 
