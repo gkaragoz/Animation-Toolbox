@@ -21,6 +21,9 @@ public class ToolboxManager : MonoBehaviour {
         _assetsLoader = FindObjectOfType<AssetsLoader>();
         _assetsLoader.onAssetsLoaded += OnAssetsLoaded;
         _assetsLoader.LoadAssets(typeof(Sprite));
+
+        ThirdPersonCharacter character = animTarget.GetComponent<ThirdPersonCharacter>();
+        character.onMovementStarted += StopAll;
     }
 
     private void Update() {
@@ -54,6 +57,12 @@ public class ToolboxManager : MonoBehaviour {
             }
         } else {
             Debug.LogError("Assets Loader or Snap Scrolling is null.");
+        }
+    }
+
+    private void StopAll() {
+        foreach (ToolboxItem toolboxItem in _toolboxItems) {
+            toolboxItem.Stop();
         }
     }
 

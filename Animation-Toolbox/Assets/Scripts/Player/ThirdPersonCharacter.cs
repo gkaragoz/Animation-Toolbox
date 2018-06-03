@@ -3,6 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ThirdPersonCharacter : MonoBehaviour {
 
+    public delegate void MovementStarted();
+    public MovementStarted onMovementStarted;
+
+    public delegate void MovementStopped();
+    public MovementStopped onMovementStopped;
+
     public Transform[] upperBodyParts;     // This component is to blending animations of walk and rotation.
 
     [SerializeField] private float _movementSpeed = 2f;
@@ -14,6 +20,7 @@ public class ThirdPersonCharacter : MonoBehaviour {
 	private float _forwardAmount;
 
     private Animator _anim;
+    private bool _isMoving;
 
 	void Start() {
         _anim = GetComponent<Animator>();
@@ -35,9 +42,23 @@ public class ThirdPersonCharacter : MonoBehaviour {
 
         if (move.magnitude > 0f) {
             _rigidbody.velocity = transform.forward * _movementSpeed;
+
+            if (_isMoving == false) {
+                if (onMovementStarted != null)
+                    onMovementStarted();
+
+                _isMoving = true;
+            }
         }
         else {
             _rigidbody.velocity = Vector3.zero;
+
+            if (_isMoving == true) {
+                if (onMovementStopped != null)
+                    onMovementStopped();
+
+                _isMoving = false;
+            }
         }
 
         // update animation parameters
