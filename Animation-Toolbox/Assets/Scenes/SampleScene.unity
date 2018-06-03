@@ -158,22 +158,22 @@ Prefab:
     - target: {fileID: 114727027328749314, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114632524367963886, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114041124265044452, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114736302524554712, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224266462313376928, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
         type: 2}
@@ -1295,6 +1295,7 @@ MonoBehaviour:
   sequenceItems: []
   timers: []
   content: {fileID: 500687793}
+  startStopButtonUI: {fileID: 1134070115}
 --- !u!114 &1017698840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,6 +1634,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1122734434}
   m_Script: {fileID: 11500000, guid: cecce8d3f549de045bea5fd79de9e7cb, type: 3}
+--- !u!114 &1134070115 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114005452167709830, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+    type: 2}
+  m_PrefabInternal: {fileID: 165707158}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1137608378
 GameObject:
   m_ObjectHideFlags: 0
