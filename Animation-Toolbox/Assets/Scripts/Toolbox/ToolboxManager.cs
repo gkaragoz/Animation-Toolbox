@@ -7,11 +7,6 @@ public class ToolboxManager : MonoBehaviour {
     [Header("Initialize")]
     public Animator targetAnim;
 
-    [HideInInspector]
-    public List<AnimationItem> animationItems = new List<AnimationItem>();
-    [HideInInspector]
-    public List<SequenceItem> sequenceItems = new List<SequenceItem>();
-
     private AnimationManager _animationManager;
     private SequenceManager _sequenceManager;
     private AssetsLoader _assetsLoader;
@@ -31,7 +26,7 @@ public class ToolboxManager : MonoBehaviour {
     }
 
     private void OnAssetsLoaded(AssetPackage[] assetPackages) {
-        animationItems = _animationManager.Create(assetPackages);
-        sequenceItems = _sequenceManager.Initialize();
+        _animationManager.Create(assetPackages);
+        _sequenceManager.Initialize();
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SequenceItem : Toolbox {
+public class Timer : Toolbox {
     public override IEnumerator Play() {
         throw new System.NotImplementedException();
     }

@@ -36,6 +36,7 @@ public class AnimationManager : MonoBehaviour {
                 AssetPackage assetPackage = assetPackages[ii];
 
                 GameObject newPanel = _snapScrolling.CreateAPanel();
+
                 GifferManager newPanelAnimationManager = newPanel.GetComponent<GifferManager>();
 
                 Sprite[] animationSprites = Array.ConvertAll(assetPackage.assets, sprites => sprites as Sprite);

@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AnimationItem : Toolbox {
-    public override event ClickEventHandler OnClicked;
+    public delegate void ClickEventHandler(AnimationItem item);
+    public event ClickEventHandler OnClicked;
 
     public float repeatRate;
     

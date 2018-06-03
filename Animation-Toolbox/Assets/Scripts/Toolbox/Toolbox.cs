@@ -9,9 +9,6 @@ public abstract class Toolbox : MonoBehaviour {
 
     protected Text AnimationTextUI { get; set; }
 
-    public delegate void ClickEventHandler(AnimationItem item);
-    public abstract event ClickEventHandler OnClicked;
-
     public abstract IEnumerator Play();
     public abstract IEnumerator PlayAfterAWhile(float delay);
     public abstract void Stop();

@@ -6,10 +6,13 @@ using UnityEngine;
 public class SequenceManager : MonoBehaviour {
 
     public List<SequenceItem> sequenceItems = new List<SequenceItem>();
+    public List<Timer> timers = new List<Timer>();
 
-    public List<SequenceItem> Initialize() {
-        sequenceItems = FindObjectsOfType<SequenceItem>().ToList();
-        return sequenceItems;
+    public Transform content;
+
+    public void Initialize() {
+        sequenceItems = content.GetComponentsInChildren<SequenceItem>().ToList();
+        timers = content.GetComponentsInChildren<Timer>().ToList();
     }
 
     public void StartSequence() {
