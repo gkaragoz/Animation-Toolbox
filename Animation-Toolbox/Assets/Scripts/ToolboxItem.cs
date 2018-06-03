@@ -52,7 +52,7 @@ public class ToolboxItem : MonoBehaviour {
 
     public IEnumerator Play() {
         while (true) {
-            animTarget.CrossFade(animationName, 0.05f);
+            animTarget.CrossFade(animationName, 0.02f);
             yield return new WaitForSeconds(repeatRate);
         }
     }
