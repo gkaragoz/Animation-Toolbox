@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ToolboxManager : MonoBehaviour {
@@ -15,6 +16,7 @@ public class ToolboxManager : MonoBehaviour {
     private SnapScrolling _snapScrolling;
     private AssetsLoader _assetsLoader;
     private List<AnimationItem> _animationItems = new List<AnimationItem>();
+    private List<SequenceItem> _sequenceItems = new List<SequenceItem>();
 
     private void Start() {
         _snapScrolling = FindObjectOfType<SnapScrolling>();
@@ -24,6 +26,8 @@ public class ToolboxManager : MonoBehaviour {
 
         ThirdPersonCharacter character = animTarget.GetComponent<ThirdPersonCharacter>();
         character.onMovementStarted += StopAll;
+
+        InitializeSequenceItems();
     }
 
     private void Update() {
@@ -62,6 +66,10 @@ public class ToolboxManager : MonoBehaviour {
 
             newPanelAnimationManager.enabled = true;
         }
+    }
+
+    private void InitializeSequenceItems() {
+        _sequenceItems = FindObjectsOfType<SequenceItem>().ToList();
     }
 
     private void StopAll() {

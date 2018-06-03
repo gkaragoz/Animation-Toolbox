@@ -1869,16 +1869,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114178136915195004, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
-        type: 2}
-      propertyPath: animTarget
-      value: 
-      objectReference: {fileID: 1352426504}
     - target: {fileID: 114248459971684880, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
         type: 2}
       propertyPath: animTarget
       value: 
       objectReference: {fileID: 1352426504}
+    - target: {fileID: 114178136915195004, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: animTarget
+      value: 
+      objectReference: {fileID: 1352426504}
+    - target: {fileID: 114172380115652334, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: m_Text
+      value: Add
+      objectReference: {fileID: 0}
+    - target: {fileID: 114294228191591528, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec,
+        type: 2}
+      propertyPath: m_Text
+      value: Add
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec, type: 2}
   m_IsPrefabParent: 0
