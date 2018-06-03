@@ -3,44 +3,39 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ThirdPersonCharacter : MonoBehaviour
 {
-	[SerializeField] float m_MovingTurnSpeed = 360;
-	[SerializeField] float m_StationaryTurnSpeed = 180;
+    [SerializeField] private float _movementSpeed = 10f;
+	[SerializeField] private float _movingTurnSpeed = 360f;
+	[SerializeField] private float _stationaryTurnSpeed = 180f;
 
-	Rigidbody m_Rigidbody;
-	const float k_Half = 0.5f;
-	float m_TurnAmount;
-	float m_ForwardAmount;
+	private Rigidbody _rigidbody;
+	private float _turnAmount;
+	private float _forwardAmount;
 
-	void Start()
-	{
-		m_Rigidbody = GetComponent<Rigidbody>();
-		m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+	void Start() { 
+		_rigidbody = GetComponent<Rigidbody>();
+		_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 	}
 
-
-	public void Move(Vector3 move)
-	{
+	public void Move(Vector3 move) {
 		// convert the world relative moveInput vector into a local-relative
 		// turn amount and forward amount required to head in the desired
 		// direction.
 		if (move.magnitude > 1f) move.Normalize();
 		move = transform.InverseTransformDirection(move);
 
-		m_TurnAmount = Mathf.Atan2(move.x, move.z);
-		m_ForwardAmount = move.z;
+		_turnAmount = Mathf.Atan2(move.x, move.z);
+		_forwardAmount = move.z;
 
-		ApplyExtraTurnRotation();
+		ApplyTurnRotation();
 
         if (move.magnitude > 0f)
-            m_Rigidbody.velocity = transform.forward;
+            _rigidbody.velocity = transform.forward * _movementSpeed;
         else
-            m_Rigidbody.velocity = Vector3.zero;
+            _rigidbody.velocity = Vector3.zero;
 	}
 
-	void ApplyExtraTurnRotation()
-	{
-		// help the character turn faster (this is in addition to root rotation in the animation)
-		float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
-		transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
+	void ApplyTurnRotation() {
+		float turnSpeed = Mathf.Lerp(_stationaryTurnSpeed, _movingTurnSpeed, _forwardAmount);
+		transform.Rotate(0, _turnAmount * turnSpeed * Time.deltaTime, 0);
 	}
 }

@@ -1146,18 +1146,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100068, guid: ea16a6198551a934b98cb893e86f13ed, type: 2}
   m_PrefabInternal: {fileID: 1352426502}
---- !u!114 &1352426505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1352426503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c869800a6161d4191b519977f64ee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joystick: {fileID: 1122734436}
 --- !u!114 &1352426506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,6 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 1122734436}
   hInput: 0
   vInput: 0
 --- !u!114 &1352426507
@@ -1182,8 +1171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 360
-  m_StationaryTurnSpeed: 180
+  _movementSpeed: 2
+  _movingTurnSpeed: 135
+  _stationaryTurnSpeed: 67.5
 --- !u!54 &1352426510
 Rigidbody:
   m_ObjectHideFlags: 0
