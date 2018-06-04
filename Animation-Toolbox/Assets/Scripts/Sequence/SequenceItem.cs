@@ -12,13 +12,14 @@ public class SequenceItem : Toolbox {
     public Button sequenceTab;
     public GameObject contentImageObj;
     public GameObject iconImageObj;
+    public bool stopFlag;
 
     private Text _textUI;
     private Button _buttonUI;
     private AnimationManager _animationManager;
     private SequenceManager _sequenceManager;
 
-    private void Awake() {
+    private void Start() {
         _animationManager = FindObjectOfType<AnimationManager>();
         _sequenceManager = FindObjectOfType<SequenceManager>();
 
@@ -67,17 +68,19 @@ public class SequenceItem : Toolbox {
     }
 
     public override IEnumerator Play() {
+        stopFlag = false;
         animTarget.CrossFade(animationName, 0.02f);
         yield break;
     }
 
     public override IEnumerator PlayAfterAWhile(float delay) {
+        stopFlag = false;
         yield return new WaitForSeconds(delay);
         StartCoroutine(Play());
     }
 
     public override void Stop() {
-        RadialProgressBar.ResetAmount();
+        stopFlag = true;
         StopAllCoroutines();
     }
 

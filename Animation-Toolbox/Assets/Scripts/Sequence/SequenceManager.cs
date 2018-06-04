@@ -14,6 +14,9 @@ public class SequenceManager : MonoBehaviour {
     public Sprite startButtonSprite;
     public Sprite stopButtonSprite;
 
+    private int sequenceItemsIndex = 0;
+    private int timersIndex = 0;
+
     private SequenceItem _selectedItem;
     public SequenceItem SelectedItem {
         get {
@@ -36,25 +39,59 @@ public class SequenceManager : MonoBehaviour {
                 StartSequence();
             else
                 StopSequence();
-
-            _isPlaying = !_isPlaying;
         });
     }
 
     public void StartSequence() {
+        _isPlaying = !_isPlaying;
         startStopButtonUI.transform.Find("Icon").GetComponent<Image>().sprite = stopButtonSprite;
-
-        foreach (Timer timer in timers) {
-            StartCoroutine(timer.Play());
-        }
         DisableContentButtons();
+
+        PlayNextTimer();
+    }
+
+    public void PlayNextTimer() {
+        if (timersIndex >= timers.Count) {
+            StopSequence();
+            return;
+        }
+
+        timers[timersIndex].OnTimerFinished += OnTimerFinished;
+        StartCoroutine(timers[timersIndex].Play());
+    }
+
+    public void PlayNextSequenceItem() {
+        if (sequenceItemsIndex >= sequenceItems.Count) {
+            StopSequence();
+            return;
+        }
+
+        StartCoroutine(sequenceItems[sequenceItemsIndex].Play());
+    }
+
+    public void OnSequenceItemFinish() {
+        sequenceItemsIndex++;
+        PlayNextTimer();
+    }
+
+    public void OnTimerFinished() {
+        timers[timersIndex].OnTimerFinished -= OnTimerFinished;
+        timersIndex++;
+        PlayNextSequenceItem();
     }
 
     public void StopSequence() {
+        _isPlaying = !_isPlaying;
         startStopButtonUI.transform.Find("Icon").GetComponent<Image>().sprite = startButtonSprite;
+        timersIndex = 0;
+        sequenceItemsIndex = 0;
 
         foreach (Timer timer in timers) {
             timer.Stop();
+        }
+
+        foreach (SequenceItem sequenceItem in sequenceItems) {
+            sequenceItem.Stop();
         }
         ActivateContentButtons();
     }
@@ -77,14 +114,6 @@ public class SequenceManager : MonoBehaviour {
         foreach (SequenceItem sequenceItem in sequenceItems) {
             sequenceItem.DisableButton();
         }
-    }
-
-    public void AddToSequence() {
-
-    }
-
-    public void ReplaceItemToSequence() {
-
     }
 
 }

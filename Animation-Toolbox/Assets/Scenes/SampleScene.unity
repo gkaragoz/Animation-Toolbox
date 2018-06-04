@@ -1047,6 +1047,10 @@ Prefab:
       propertyPath: sequenceTab
       value: 
       objectReference: {fileID: 456696018}
+    - target: {fileID: 1064814437956544, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64d4100c7f2bc1c4a8161f6ce2d8cfec, type: 2}
   m_IsPrefabParent: 0

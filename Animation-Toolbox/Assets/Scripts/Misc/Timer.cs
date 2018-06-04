@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : Toolbox {
-    public delegate void TimerFinishEventHandler(Timer timer);
+    public delegate void TimerFinishEventHandler();
     public event TimerFinishEventHandler OnTimerFinished;
 
     [SerializeField]
@@ -17,9 +17,6 @@ public class Timer : Toolbox {
             _currentValue = value;
             if (_currentValue < 0f) {
                 _currentValue = 0f;
-
-                if (OnTimerFinished != null)
-                    OnTimerFinished.Invoke(this);
             }
             _valueTextUI.text = _currentValue.ToString("F1");
             RadialProgressBar.CurrentAmount = _currentValue;
@@ -78,6 +75,11 @@ public class Timer : Toolbox {
             CurrentValue -= Time.deltaTime;
             yield return new WaitForSeconds(0.01f);
         }
+
+        if (OnTimerFinished != null) {
+            OnTimerFinished.Invoke();
+        }
+
         yield break;
     }
 
@@ -88,6 +90,10 @@ public class Timer : Toolbox {
             CurrentValue -= Time.deltaTime;
             yield return new WaitForSeconds(0.01f);
         }
+
+        if (OnTimerFinished != null)
+            OnTimerFinished.Invoke();
+
         yield break;
     }
 
