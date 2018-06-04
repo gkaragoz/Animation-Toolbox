@@ -23,10 +23,12 @@ public class GifferController : MonoBehaviour {
 
     private float _nextFrameTime;
 
+    private bool _stopper;
+
     private const string ERR_SPRITE_ARRAY_IS_EMPTY = "Sprite array is empty!";
 
     IEnumerator Play() {
-        while (_currentAnimation != null && Time.time >= _nextFrameTime) {
+        while (_currentAnimation != null && Time.time >= _nextFrameTime && !_stopper) {
             _nextFrameTime = Time.time + frameRate;
 
             switch (sourceType) {
@@ -68,17 +70,19 @@ public class GifferController : MonoBehaviour {
             return;
         }
 
-        this._currentAnimation = anim;
+        _currentAnimation = anim;
 
-        if (this._currentAnimation.Length > 1)
+        if (_currentAnimation.Length > 1)
             StartCoroutine(Play());
         else
             PlayOneShot();
     }
 
     public void Stop() {
-        _currentAnimation = null;
+        _stopper = true;
         StopAllCoroutines();
+        _stopper = false;
+        _currentFrameIndex = 0;
     }
 
     public Sprite[] GetCurrentAnimation() {
