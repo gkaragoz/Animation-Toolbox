@@ -16,7 +16,7 @@ public class AnimationManager : MonoBehaviour {
     private SnapScrolling _snapScrolling;
     private Animator _targetAnim;
 
-    private void Start() {
+    private void Awake() {
         _snapScrolling = FindObjectOfType<SnapScrolling>();
         _targetAnim = ToolboxManager.instance.targetAnim;
         _targetAnim.GetComponent<ThirdPersonCharacter>().onMovementStarted += StopAllAnimationItems;
